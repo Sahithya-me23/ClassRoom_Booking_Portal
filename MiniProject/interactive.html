@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Table with Timer</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.empty {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Interactive HTML Table</h2>
+    <table id="myTable">
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td class="empty"></td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Banana</td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+        </tr>
+        <tr>
+            <td>Orange</td>
+            <td>5</td>
+            <td class="empty"></td>
+        </tr>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select all cells with the 'empty' class
+            const emptyCells = document.querySelectorAll("td.empty");
+
+            // Add click event listener to each empty cell
+            emptyCells.forEach(cell => {
+                cell.addEventListener("click", function() {
+                    // Prompt user for input
+                    const newValue = prompt("Enter a value for the cell:");
+                    if (newValue !== null && newValue.trim() !== "") {
+                        cell.textContent = newValue; // Update cell with new value
+                        cell.classList.remove("empty"); // Remove 'empty' class
+                    }
+                });
+            });
+
+            // Set a timer to clear cells after a specified period (e.g., 10 seconds)
+            setTimeout(() => {
+                clearTableData();
+            }, 10000); // Time in milliseconds (10000 ms = 10 seconds)
+        });
+
+        function clearTableData() {
+            const table = document.getElementById("myTable");
+            const rows = table.rows;
+
+            // Iterate through the rows and cells
+            for (let i = 1; i < rows.length; i++) { // Start from index 1 to skip the header row
+                for (let j = 1; j < rows[i].cells.length; j++) { // Start from index 1 to skip the first column
+                    rows[i].cells[j].textContent = ""; // Clear the cell content
+                    rows[i].cells[j].classList.add("empty"); // Add 'empty' class back if needed
+                }
+            }
+        }
+    </script>
+</body>
+</html>

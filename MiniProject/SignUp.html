@@ -1,0 +1,97 @@
+<DOCTYPE html>
+
+    <head>
+        <title>SignUp</title>
+        <style>
+            body {
+                background-color: #1F2833;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .container {
+                background-color: #0B0C10;
+                color: #66FCF1;
+                align-content: center;
+                padding: 10px 45px;
+                border: 5px solid;
+                border-radius: 40px;
+                border-color: #66FCF1;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                margin-top: 50px;
+                margin-left: 450px;
+                cursor: pointer;
+                width: 400px;
+                height: 550px;
+                box-shadow: #66FCF3;
+            }
+
+            .custom-btn{
+                background-color: #66FCF1;
+                color:#1F2833;
+                font-size: large;
+                border-radius: 10px;
+                width: 150px;
+                height: 50px;
+                margin-left: 10px;
+            }
+
+            .button {
+                background-color: #66FCF1;
+                color:#0B0C10;
+                border-radius: 10px;
+                width: 150px;
+                height: 50px;
+                margin-left: 10px;
+                font-size: large;
+            }
+
+            input[type="text"] {
+                background-color: #66FCF1;
+                color: #0B0C10;
+                border-radius: 15px;
+                border: none;
+                padding: 10px;
+                font-size: 16px;
+                width: 400px;
+            }
+
+            input[type="text"]::placeholder {
+                color: lightgray;
+            }
+        </style>
+    </head>
+
+    <body style="background-image: url('AquaBlkBG.jpg');">
+        <div class="container">
+            <h2>CLASSROOM BOOKING PORTAL</h2>
+            <br>
+            <p>Please Enter the folowing details accurately for creating account:</p>
+            <br>
+            <form method="post" action="Add.php">
+                <label for="Name">Enter UserName</label><br>
+                <input type="text" name="Name"><br><br>
+                <label for="Email">Enter Email</label><br>
+                <input type="text" name="Email"><br><br>
+                <label for="Password">Enter Password</label><br>
+                <input type="text" name="Password"><br><br>
+                <label for="Auth">Select Who You are</label><br>
+                <select name="Auth">
+                    <option value="Faculty">Faculty</option>
+                    <option value="CR/GR">CR/GR</option>
+                    <option value="Student">Student</option>
+                </select><br>
+                <br>
+                <button class="button">Create Account</button>
+                <button type="button" class="custom-btn" onclick="redirectToLogin()">Login</button>
+            </form>
+        </div>
+    </body>
+    <script>
+        function redirectToLogin() {
+            window.location.href = "Login.html";
+        }
+    </script>
+    
+
+    </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form with Chart.js</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .feedback-form {
+            margin: 20px 0;
+        }
+        .feedback-form label {
+            display: block;
+            margin: 5px 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <button id="feedbackButton">Give Feedback</button>
+    <div id="feedbackForm" class="hidden">
+        <form id="feedback-form" class="feedback-form">
+            <label>User Interface:
+                <input type="number" min="1" max="5" id="ui" required>
+            </label>
+            <label>User Experience:
+                <input type="number" min="1" max="5" id="ux" required>
+            </label>
+            <label>Functionalities:
+                <input type="number" min="1" max="5" id="functionalities" required>
+            </label>
+            <label>Easy Booking:
+                <input type="number" min="1" max="5" id="easyBooking" required>
+            </label>
+            <label>Performance:
+                <input type="number" min="1" max="5" id="performance" required>
+            </label>
+            <label>Support:
+                <input type="number" min="1" max="5" id="support" required>
+            </label>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+    <canvas id="feedbackChart" width="400" height="200"></canvas>
+
+    <script src="feedback.js"></script>
+</body>
+</html>

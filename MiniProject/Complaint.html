@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Item Finder</title>
+    <link rel="stylesheet" href="Complaint.css">
+</head>
+<body>
+    <div class="container">
+        <button id="showFormBtn">Add Item</button>
+        
+        <div id="formContainer" class="form-container">
+            <form id="itemForm">
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder="Enter description" rows="2" required></textarea>
+                
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year" placeholder="Enter year" required>
+                
+                <label for="section">Section:</label>
+                <input type="text" id="section" name="section" placeholder="Enter section" required>
+                
+                <label for="classroom">Classroom:</label>
+                <input type="text" id="classroom" name="classroom" placeholder="Enter classroom" required>
+                
+                <label for="contact">Person to Contact:</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter contact person" required>
+                
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
+        
+        <div id="cardsContainer" class="cards-container">
+            <!-- Cards will be added here dynamically -->
+        </div>
+    </div>
+    
+    <script src="Complaint.js"></script>
+</body>
+</html>

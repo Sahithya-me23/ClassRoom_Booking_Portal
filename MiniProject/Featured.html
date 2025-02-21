@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+    
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            margin-top: 150px;
+            color:#66FCF1;
+        }
+
+        .bus {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(20, 40px);
+            grid-gap: 10px;
+            justify-content: center;
+        }
+
+        .seat {
+            margin-top: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #66FCF1;
+            border: 1px solid #0B0C10;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .seat.booked {
+            background-color: red;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('AquaBlkBG.jpg');">
+    <div class="container">
+        <h1>Workshop Seat Booking</h1>
+        <div class="bus">
+            <!-- 200 seats will be generated here by JavaScript -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const busContainer = document.querySelector('.bus');
+
+    // Load booked seats from localStorage
+    const bookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || [];
+
+    // Generate 200 seats
+    for (let i = 1; i <= 200; i++) {
+        const seat = document.createElement('div');
+        seat.classList.add('seat');
+        seat.textContent = i; // Seat number
+        busContainer.appendChild(seat);
+
+        // Check if the seat is in the bookedSeats array
+        if (bookedSeats.includes(i)) {
+            seat.classList.add('booked');
+        }
+
+        // Add click event to each seat
+        seat.addEventListener('click', function() {
+            if (!seat.classList.contains('booked')) {
+                seat.classList.add('booked');
+                bookedSeats.push(i);
+                localStorage.setItem('bookedSeats', JSON.stringify(bookedSeats));
+                alert(`Seat ${i} booked successfully!`);
+            } else {
+                alert(`Seat ${i} is already booked!`);
+            }
+        });
+    }
+});
+
+
+    </script>
+</body>
+
+</html>
